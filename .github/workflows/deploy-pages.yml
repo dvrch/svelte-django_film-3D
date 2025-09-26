@@ -45,22 +45,23 @@ jobs:
           cd ..
           mv Base_threlte_dv/build/* pages/threlte/
 
-      - name: Create root index.html
-        run: |
-          echo '<!DOCTYPE html>
-<html>
-<head>
-  <title>Frontend Projects</title>
-</head>
-<body>
-  <h1>Frontend Projects</h1>
-  <ul>
-    <li><a href="./front-film/">Film App</a></li>
-    <li><a href="./threlte/">Threlte App</a></li>
-  </ul>
-</body>
-</html>' > pages/index.html
-
+            - name: Create root index.html
+              run: |
+                cat <<EOF > pages/index.html
+                <!DOCTYPE html>
+                <html>
+                <head>
+                  <title>Frontend Projects</title>
+                </head>
+                <body>
+                  <h1>Frontend Projects</h1>
+                  <ul>
+                    <li><a href="./front-film/">Film App</a></li>
+                    <li><a href="./threlte/">Threlte App</a></li>
+                  </ul>
+                </body>
+                </html>
+                EOF
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
