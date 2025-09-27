@@ -63,6 +63,9 @@ jobs:
           </html>
           EOF
 
+      - name: List files in pages directory
+        run: ls -R pages
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
