@@ -15,7 +15,6 @@
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "@threlte/extras": "^7.5.4",
-    "@threlte/gltf": "^2.0.3",
     "@types/three": "^0.159.0",
     "svelte": "^4.2.7",
     "svelte-check": "^3.6.0",

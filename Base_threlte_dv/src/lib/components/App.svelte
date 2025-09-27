@@ -1,7 +1,6 @@
 <script lang="ts">
   import { Canvas } from '@threlte/core';
-  import { OrbitControls } from '@threlte/extras'; // Keep OrbitControls from extras
-  import { useGLTF } from '@threlte/gltf'; // Import useGLTF from gltf
+  import { OrbitControls, useGLTF } from '@threlte/extras'; // Import useGLTF from extras
   import { DirectionalLight, AmbientLight } from 'three';
 
   // Load the GLB model
