@@ -17,7 +17,7 @@
 
     onMount(async function () {
         if (!$FilmStore.length) {
-            const endpoint = 'http://localhost:8000/api/films/'
+            const endpoint = '/api/films/'
             try {
                 const response = await fetch(endpoint);
                 if (!response.ok) {
@@ -33,7 +33,7 @@
     })
 
     let handleDelete = (id) => {
-        const endpoint = `http://localhost:8000/api/films/${id}`
+        const endpoint = `/api/films/${id}/`
         fetch(endpoint, {method: 'DELETE'}).then(response => {
             if (response.status == 204) {
                 FilmStore.update(prev => prev.filter(film => film.id != id))
