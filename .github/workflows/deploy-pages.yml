@@ -17,10 +17,53 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create simple index.html
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Build front-Film
         run: |
-          mkdir -p pages
-          echo "<h1>Test Page</h1><p>If you see this, the basic deployment is working.</p>" > pages/index.html
+          mkdir -p pages/front-film
+          cd front-Film
+          pnpm install
+          pnpm run build
+          cd ..
+          mv front-Film/build/* pages/front-film/
+          cp pages/front-film/404.html pages/front-film/index.html
+
+      - name: Build Base_threlte_dv
+        run: |
+          mkdir -p pages/threlte
+          cd Base_threlte_dv
+          pnpm install
+          pnpm run build
+          cd ..
+          mv Base_threlte_dv/build/* pages/threlte/
+          cp pages/threlte/404.html pages/threlte/index.html
+
+      - name: Create root index.html
+        run: |
+          cat <<EOF > pages/index.html
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>Frontend Projects</title>
+          </head>
+          <body>
+            <h1>Frontend Projects</h1>
+            <ul>
+              <li><a href="./front-film/">Film App</a></li>
+              <li><a href="./threlte/">Threlte App</a></li>
+            </ul>
+          </body>
+          </html>
+          EOF
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
