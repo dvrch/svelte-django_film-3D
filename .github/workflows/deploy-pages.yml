@@ -41,7 +41,7 @@ jobs:
         run: |
           mkdir -p pages/threlte
           cd Base_threlte_dv
-          pnpm install
+          pnpm install --force
           pnpm run build
           cd ..
           mv Base_threlte_dv/build/* pages/threlte/
