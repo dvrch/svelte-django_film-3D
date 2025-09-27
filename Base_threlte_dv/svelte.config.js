@@ -10,7 +10,7 @@ const config = {
 			fallback: '404.html'
 		}),
 		paths: {
-			base: '/svelte-django_film-3D/threlte',
+			base: process.env.NODE_ENV === 'production' ? '/svelte-django_film-3D/threlte' : '',
 		},
 		files: {
 			routes: 'src/routes'
