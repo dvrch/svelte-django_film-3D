@@ -35,6 +35,7 @@ jobs:
           pnpm run build
           cd ..
           mv front-Film/build/* pages/front-film/
+          cp pages/front-film/404.html pages/front-film/index.html
 
       - name: Build Base_threlte_dv
         run: |
@@ -44,6 +45,7 @@ jobs:
           pnpm run build
           cd ..
           mv Base_threlte_dv/build/* pages/threlte/
+          cp pages/threlte/404.html pages/threlte/index.html
 
       - name: Create root index.html
         run: |
@@ -62,9 +64,6 @@ jobs:
           </body>
           </html>
           EOF
-
-      - name: List files in pages directory
-        run: ls -R pages
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
