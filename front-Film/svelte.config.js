@@ -3,11 +3,9 @@ import adapter from '@sveltejs/adapter-static';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({
-			fallback: '404.html'
-		}),
+		adapter: adapter(),
 		paths: {
-			base: '/svelte-django_film-3D/front-film',
+			base: process.env.NODE_ENV === 'production' ? '/svelte-django_film-3D/front-film' : '',
 		}
 	}
 };
